@@ -23,12 +23,5 @@ bool mathematika_isPrime(int n)
 
 bool mathematika_isCoPrime(int x, int y)
 {
-    if (mathematika_gcd(x, y) == 1)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return mathematika_gcd(x, y) == 1;
 }

@@ -10,8 +10,7 @@ void suite_e_suite(int longueur)
     while (longueur-- >= 1)
     {
         printf("%d , ", generator_generate(Suivant));
-        
     }
     printf("%d", generator_generate(Suivant));
-    printf(")\n");
+    printf(")");
 }

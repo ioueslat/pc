@@ -11,6 +11,5 @@ void suite_e_suite(int longueur)
     {
         printf("%d , ", generator_generate(Suivant));
     }
-    printf("%d", generator_generate(Suivant));
-    printf(")");
+    printf("%d)", generator_generate(Suivant));
 }

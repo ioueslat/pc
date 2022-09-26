@@ -7,9 +7,9 @@ void suite_e_suite(int longueur)
 
     generator_generate(Debut);
     printf("(");
-    while (longueur-- >= 0)
+    while (longueur-- >= 1)
     {
         printf("%d , ", generator_generate(Suivant));
     }
-    printf(")\n");
+    printf("%d)", generator_generate(Suivant));
 }

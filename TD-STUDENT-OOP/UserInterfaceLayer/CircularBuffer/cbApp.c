@@ -24,7 +24,7 @@ static void prompt()
 int main()
 {
     prompt();
-    circularBufferAppService_run_use_case('n'); //create the first instance for free -cadeau!
+    CircularBufferAppService_run_use_case('n'); //create the first instance for free -cadeau!
 
     while (true)
     {
@@ -33,7 +33,7 @@ int main()
         if (c == EOF)
             break;
 
-        circularBufferAppService_run_use_case(c);
+        CircularBufferAppService_run_use_case(c);
     }
 
     printf("\n");

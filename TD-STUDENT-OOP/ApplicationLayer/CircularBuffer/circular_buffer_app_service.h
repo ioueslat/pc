@@ -10,6 +10,6 @@
 
 #define CIRCULAR_BUFFER_LENGTH 6
 
-void circularBufferAppService_run_use_case(int c);
+void CircularBufferAppService_run_use_case(int c);
 
 #endif

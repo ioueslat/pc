@@ -1,12 +1,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
 #include "i_digital_wheel_repository.h"
 #include "digital_wheel_infra_file_service.h"
 #include "i_digital_wheel.h"
+
 #define INDEX_SUFFIX ".ndx"
 #define DATA_SUFFIX ".rec"
-#define FILE_DB_REPO "../Persistence/FileDB/TWO_WHEELS"
+#define FILE_DB_REPO "../Persistence/FileDB/DigitalWheel/TWO_WHEELS"
+
 struct digital_wheel
 {
     int start;
@@ -76,7 +79,7 @@ int IDigitalWheelRepository_open(char *name)
     return 1;
 }
 
-void IDigitalWheelRepository_append(digital_wheel record)
+int IDigitalWheelRepository_append(digital_wheel record)
 {
     struct index index;
     int myRecord[3] = {record->start,
@@ -84,11 +87,11 @@ void IDigitalWheelRepository_append(digital_wheel record)
     size_t length = sizeof(myRecord);
     fseek(data_stream, 0L, SEEK_END);
     index.recordStart = ftell(data_stream);
-    printf("%ld \n", index.recordStart);
     index.recordLength = length;
     fwrite(myRecord, sizeof(int), 3, data_stream);
     fseek(index_stream, 0L, SEEK_END);
     fwrite(&index, sizeof index, 1, index_stream);
+    return 1;
 }
 
 digital_wheel IDigitalWheelRepository_get_nth_wheel(int rank)
@@ -99,7 +102,6 @@ digital_wheel IDigitalWheelRepository_get_nth_wheel(int rank)
     fread(&index, sizeof index, 1, index_stream);
     fseek(data_stream, index.recordStart, SEEK_SET);
     int myRecord[3];
-
     fread(myRecord, sizeof myRecord, 1, data_stream);
     //digital_wheel dw = malloc(sizeof(struct digital_wheel));
     digital_wheel dw = DigitalWheel_construct(myRecord[0], myRecord[1]);
@@ -109,4 +111,7 @@ digital_wheel IDigitalWheelRepository_get_nth_wheel(int rank)
     //dw->end = myRecord[1];
     //dw->current = myRecord[2];
     return dw;
+}
+twoWheels IDigitalWheelRepository_get_nth_two_wheels(int rank)
+{
 }

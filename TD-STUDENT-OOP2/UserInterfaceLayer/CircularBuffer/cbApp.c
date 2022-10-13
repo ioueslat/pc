@@ -3,9 +3,6 @@
 #include <stdbool.h>
 #include "circular_buffer_app_service.h"
 
-#define DESTROY_CIRCULAR_BUFFER '!'
-#define NEW_CIRCULAR_BUFFER 'n'
-
 //static circular_buffer cb;
 
 static void prompt()
@@ -16,9 +13,9 @@ static void prompt()
     puts("*************************************************************************");
     puts("At any time you could input a string of char then Enter, e.g, [1]: 1234 ");
     puts("*************************************************************************");
-    puts("********************************************************************************************************");
-    puts("* Menu [ n: new instance, > : current<-head, < : read char before, ! : destroy instance , Ctr-D: Quit] *");
-    puts("********************************************************************************************************");
+    puts("*******************************************************************************************************************");
+    puts("* Menu [ n: new instance, > : current:=current, < : read char before, ! : save, x : destroy instance , Ctr-D: Quit] *");
+    puts("********************************************************************************************************************");
 }
 
 int main()

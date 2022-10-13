@@ -5,11 +5,11 @@
 
 CLASS(digital_wheel);
 CLASS(twoWheels);
-int IDigitalWheelRepository_save(twoWheels twoheels);
-digital_wheel IDigitalWheelRepository_get_nth_wheel(int rank);
-int IDigitalWheelRepository_delete_nth_wheel(int rank);
-void IDigitalWheelRepository_close();
-int IDigitalWheelRepository_open();
-void IDigitalWheelRepository_append(digital_wheel record);
-twoWheels IDigitalWheelRepository_get_nth_two_wheels(int rank);
+extern int IDigitalWheelRepository_save(twoWheels twoheels);
+extern digital_wheel IDigitalWheelRepository_get_nth_wheel(int rank);
+extern int IDigitalWheelRepository_delete_nth_wheel(int rank);
+extern void IDigitalWheelRepository_close();
+extern int IDigitalWheelRepository_open(char *name);
+extern int IDigitalWheelRepository_append(digital_wheel record);
+extern twoWheels IDigitalWheelRepository_get_nth_two_wheels(int rank);
 #endif

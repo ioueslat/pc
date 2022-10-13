@@ -2,6 +2,18 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "circular_buffer_app_service.h"
+#include "circular_buffer_infra_file_service.h"
+#include "i_circular_buffer_repository.h"
+#include "i_circular_buffer.h"
+
+struct circular_buffer
+{
+    char *tail;
+    unsigned long length;
+    char *head;
+    char *current;
+    bool isFull;
+};
 
 static circular_buffer cb;
 //static circular_buffer cb;
@@ -36,6 +48,11 @@ void CircularBufferAppService_run_use_case(int c)
 
     case NEW_CIRCULAR_BUFFER:
         create(CIRCULAR_BUFFER_LENGTH);
+        break;
+
+    case SAVE_CIRCULAR_BUFFER:
+        ICircularBufferRepository_save(cb);
+        ICircularBufferRepository_close();
         break;
 
     case '\n':

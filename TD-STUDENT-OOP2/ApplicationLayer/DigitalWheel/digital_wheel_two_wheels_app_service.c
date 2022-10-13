@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "instantiate.h"
-
 #include "i_digital_wheel_repository.h"
 #include "digital_wheel_two_wheels_app_service.h"
 #include "digital_wheel_infra_file_service.h"
@@ -63,8 +62,11 @@ static void display(digital_wheel wheel, void (*f)(int))
     f(DigitalWheel_get_current_position(wheel));
 }
 
-twoWheels IDigitalWheelRepository_get_nth_two_wheels(int rank)
+twoWheels DigitalWheelAppService_get_nth_two_wheels(int rank)
 {
+    /* another way: call IDigitalWheelRepository_get_nth_two_wheels *
+    /* to construct a two_wheels directly.But,I did not implement it */
+
     digital_wheel wheel1 = IDigitalWheelRepository_get_nth_wheel(rank);
     digital_wheel wheel2 = IDigitalWheelRepository_get_nth_wheel(rank + 1);
 

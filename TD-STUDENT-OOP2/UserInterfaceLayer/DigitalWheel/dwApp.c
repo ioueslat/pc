@@ -46,7 +46,7 @@ void run_use_case(int c)
     case SAVE:
         IDigitalWheelRepository_save(two_wheels);
         IDigitalWheelRepository_close();
-        printf("...SAVED\n");
+        printf("STATE SAVED: ");
         break;
 
     case READ:

@@ -11,5 +11,5 @@ extern void DigitalWheelAppService_two_wheels_collect(twoWheels self);
 extern void DigitalWheelAppService_two_wheels_initialize(twoWheels self);
 extern void DigitalWheelAppService_two_wheels_move(twoWheels self, int wheel_speed1, int wheel_speed2);
 extern void DigitalWheelAppService_two_wheels_display(twoWheels self, void (*)(int));
-
+extern twoWheels DigitalWheelAppService_get_nth_two_wheels(int rank);
 #endif

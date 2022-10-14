@@ -6,7 +6,7 @@
 #include "i_digital_wheel_repository.h"
 #include "generator.h"
 
-#define FILE_DB_REPO "../Persistence/FileDB/TWO_WHEELS"
+#define FILE_DB_REPO "../Persistence/FileDB/DigitalWheel/TWO_WHEELS"
 
 #define MOVE '>'
 #define SAVE '!'
@@ -32,7 +32,7 @@ static void generate_next_int()
 {
     printf("\n[%d]: ", generator_get_next());
 }
-void run_use_case(int c)
+int run_use_case(int c)
 {
 
     switch (c)
@@ -57,10 +57,14 @@ void run_use_case(int c)
         /* Input string representation of integer from user. */
 
         fgets(number, 3, stdin);
+
         /* Convert string representation of number to integer */
         rank = atoi(number);
-        IDigitalWheelRepository_open(FILE_DB_REPO);
-        twoWheels two = IDigitalWheelRepository_get_nth_two_wheels(rank);
+
+        if (!IDigitalWheelRepository_open(FILE_DB_REPO))
+            return EXIT_FAILURE;
+
+        twoWheels two = DigitalWheelAppService_get_nth_two_wheels(rank);
         two_wheels = two;
         break;
     }

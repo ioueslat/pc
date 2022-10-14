@@ -73,7 +73,7 @@ int IDigitalWheelRepository_open(char *name)
     index_stream = auxiliary_open(name, INDEX_SUFFIX);
     if (index_stream == NULL)
     {
-        fclose(index_stream);
+        fclose(data_stream);
         return 0;
     }
     return 1;
